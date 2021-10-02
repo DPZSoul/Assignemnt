@@ -1,0 +1,62 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Progess</title>
+    <link rel="stylesheet" href="text.css">
+</head>
+<body>
+    <img src="image/UATspaceLogo-2.jpg" alt="UATspaceLogo-2">
+    <h1>        
+        UAT Space Program
+    </h1>
+    <p>
+   Test of the document Write
+    </p>
+    <p>
+    Test of the pragraph tags
+    </p>
+     <button>
+        Start
+    </button>
+    <button>
+        Stop
+    </button>
+  <script> language = "javascript"
+  src ="code.js"
+  var countdown
+    setTimeout(function(){ alert("The time is "+currTime); }, 5000);
+    alert
+    ("STOP RIGHT THERE BUDDY")
+  </script>
+    <script> 
+                let currTime = 50;
+                setTimeout(CountDown, 0000)
+                setTimeout(CountDown, 5000)
+                setTimeout(CountDown, 10000)
+                setTimeout(CountDown, 15000)
+                setTimeout(CountDown, 20000)
+                setTimeout(CountDown, 25000)
+                setTimeout(CountDown, 30000)
+                setTimeout(CountDown, 35000)
+                setTimeout(CountDown, 40000)
+                setTimeout(CountDown, 45000)
+                setTimeout(CountDown, 50000)
+             
+                function CountDown(){
+                        if(currTime == 0){
+                                alert("Blastoff");
+                                document.getElementById("counter").innerHTML = ("Countdown: "+ currTime);
+                                document.getElementById("counter").innerHTML = ("Blast off!");
+                        }
+                        else{
+                                document.getElementById("counter").innerHTML = ("Countdown: "+ currTime);
+                        }
+                        currTime -= 5;
+                }
+</script>
+    
+</body>
+</html>
