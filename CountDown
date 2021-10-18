@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Progess</title>
+    <link rel="stylesheet" href="text.css">
+    <link ref= "stylesheet" href="code.js">
+</head>
+<body>
+    <img src="image/UATspaceLogo-2.jpg" alt="UATspaceLogo-2">
+    <h1>        
+        UAT Space Program
+    </h1>
+    <p>
+   Test of the document Write
+    </p>
+    <p>
+    Test of the pragraph tags
+    <input type="button" value="FLY" onclick="play()"> 
+    <input type="button" value="Stop" onclick="alert ('')"> 
+
+    <h2 id="BlastoffDisplay">50</h2id>
+
+    <script>
+        function StartBlastoffSequence(){
+            var currTime = 50;
+
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 0);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 5000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML =  currTime;
+            currTime -= 5;
+            }, 10000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 15000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 20000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 25000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 30000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 35000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 40000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = currTime;
+            currTime -= 5;
+            }, 45000);
+            setTimeout(function(){
+            document.getElementById("BlastoffDisplay").innerHTML = "Blast off";
+            currTime -= 5;
+            }, 50000);
+                
+        }
+
+    </script>
+</body>
+</html>
