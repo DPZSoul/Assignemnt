@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Progess</title>
+    <link rel="stylesheet" href="text.css">
+    <link ref= "stylesheet" href="code.js">
+</head>
+<body>
+    <img src="image/UATspaceLogo-2.jpg" alt="UATspaceLogo-2">
+    <h1>        
+        UAT Space Program
+    </h1>
+    <h2 id="BlastoffDisplay">50</h2>
+    <p>
+   Test of the document Write
+    </p>
+    "This is the first line\nAnd this is the second"
+    <p>
+    Test of the pragraph tags
+    </p>
+    <input type="button" value="start" onclick="StartBlastoffSequence()"> 
+    <input type="button" value="Stop" onclick="alert ('')"> 
+
+    <script>
+          var alertButton = document.getElementsByTagName("button")[0];
+            alertButton.addEventListener("click", function(event) {
+                CountDown();
+            });
+    </script>
+</body>
+</html>
