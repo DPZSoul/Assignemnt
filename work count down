@@ -1,0 +1,50 @@
+function play() {
+  var die1 =Math.ceil(Math.random()*6);
+  
+  
+  var die2 =Math.ceil(Math.random()*6);
+  
+  
+  
+  var sum = die1+die2
+  document.write("Die 1 = " + die1)
+  document.write("<br/>")
+  document.write("Die 2 = " + die2)
+  document.write("<br/>")
+  document.write("Sum = " + sum)
+  document.write("<br/>")
+  if (sum == 7 || sum == 11)
+  { document.write("CRAPS - you lose")
+  document.write("<br/>")
+  }
+  else if (die1== die2 && die1%2 == 0)
+  {
+  document.write("DOUBLES - you win")
+  document.write("<br/>")
+  }
+  
+  }
+  document.write("Simple Craps")
+  document.write("<br/>")
+  
+  play();
+
+  function CountDown(){
+    var currTime = window.prompt("PEnter Timer: ");
+    var halfTime = currTime / 2;
+    var x = halfTime % 2;
+    if(currTime % 2 !== 0){
+        halfTime = halfTime + 2 - x;
+    }
+    var timeDown = setInterval(function() {
+        currTime = currTime - 1;
+        document.getElementById("timer").innerHTML = "T-Minus: " + currTime;
+        if(currTime == 0){
+            clearInterval(timeDown);
+            document.getElementById("timer").innerHTML = "TAKEOFF";
+        }
+        if(currTime == halfTime){
+            alert("Half of the Countdown Remaining: " + halfTime + " Seconds");
+        }
+    }, 1000);
+  }
