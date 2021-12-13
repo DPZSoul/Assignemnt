@@ -1,0 +1,153 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Group.js">
+  <link rel="stylesheet" href="color.css">
+  <title>Website</title>
+<center><font size="4"><a href="Boarding Page.html">Boarding Page<head>
+<a href="index.html">Landing Page</a></font></center>
+<script src="countdown.js"></script>
+<script src="buttons.js"></script>
+<script src="dataLoader.js"></script>
+</head>
+<body>
+<h1>
+  Space Program
+  </h1>
+<img class="UAT" src="image/UATspaceLogo-2.jpg"alt="">
+</table>
+<table width="70%" border="1" id="data">
+   <col width="35%">
+   <col width="35%">
+   <thead>
+       <th>Data Type</th>
+       <th>Reading</th>
+   </thead>
+   <tbody>
+       <tr id="seconds"></tr>
+       <tr id="latitude"></tr>
+       <tr id="longitude"></tr>
+       <tr id="gpsSensor_alt"></tr>
+       <tr id="bmpSensor_alt"></tr>
+       <tr id="bmpSensor_pres"></tr>
+       <tr id="bmpSensor_temp"></tr>
+       <tr id="digSensor_temp"></tr>
+       <tr id="cssSensor_temp"></tr>
+       <tr id="cssSensor_eCO2"></tr>
+       <tr id="cssSensor_TVOC"></tr>
+       <tr id="UV"></tr>
+       <tr id="accelX"></tr>
+       <tr id="accelY"></tr>
+       <tr id="accelZ"></tr>
+       <tr id="magneticX"></tr>
+       <tr id="magneticY"></tr>
+       <tr id="magneticZ"></tr>
+       <tr id="gyroX"></tr>
+       <tr id="gyroY"></tr>
+       <tr id="gyroZ"></tr>
+   </tbody>
+</table>
+<p id="timeClock">Time is displayed here when running</p>
+<button id="startButton" class="button" onclick="start();">Start</button>
+<button id="stopButton" class="button" onclick="stop();">Stop</button>
+   <p>
+           Ready to go?
+   </p>
+   <button onclick="changeColor('blue');">Blue</button>   
+   <button onclick="changeColor('red');">Red</button> 
+   <button onclick="changeColor('black');">Standard</button> 
+<script>
+ 
+   var theTime = new Date();
+   var tempTime = new Date();
+   var time_interval = 5000;
+   var last_iteration = 0;
+   var running = true;
+   var index = 0;
+   var timer;
+
+ 
+   var data = getData();
+
+ 
+   function updateDisplay() {
+       theTime = new Date();
+       console.log("The time is: " + theTime.getHours() + ":"
+           + (theTime.getMinutes() < 10 ? "0" + theTime.getMinutes() : theTime.getMinutes()) + ":"
+           + (theTime.getSeconds() < 10 ? "0" + theTime.getSeconds() : theTime.getSeconds()));
+
+       var timeRead = data[index].time_seconds;
+
+       if (timeRead >= 10) {
+           document.getElementById("data").rows["seconds"].innerHTML =
+               dataRow("Time Elapsed", data[index].time_seconds, "seconds");
+           document.getElementById("data").rows["latitude"].innerHTML =
+               dataRow("Latitude", data[index].latitude, " ");
+           document.getElementById("data").rows["longitude"].innerHTML =
+               dataRow("Longitude", data[index].longitude, " ");
+           document.getElementById("data").rows["gpsSensor_alt"].innerHTML =
+               dataRow("GPS altitude", data[index].gps_altitude, " ");
+           document.getElementById("data").rows["bmpSensor_alt"].innerHTML =
+               dataRow("BMP alitude", data[index].bmpSensor_altitude, " ");
+           document.getElementById("data").rows["bmpSensor_pres"].innerHTML =
+               dataRow("BMP pressure", data[index].bmpSensor_pressure, " ");
+           document.getElementById("data").rows["bmpSensor_temp"].innerHTML =
+               dataRow("BMP temperature", data[index].bmpSensor_temp, " ");
+           document.getElementById("data").rows["digSensor_temp"].innerHTML =
+               dataRow("Digital temperature", data[index].digSensor_temp, " ");
+           document.getElementById("data").rows["cssSensor_temp"].innerHTML =
+               dataRow("CSS temperature", data[index].cssSensor_temp, " ");
+           document.getElementById("data").rows["cssSensor_eCO2"].innerHTML =
+               dataRow("CSS eCO2", data[index].cssSensor_eCO2, " ");
+           document.getElementById("data").rows["cssSensor_TVOC"].innerHTML =
+               dataRow("CSS TVOC", data[index].cssSensor_TVOC, " ");
+           document.getElementById("data").rows["UV"].innerHTML =
+               dataRow("UV", data[index].UV, " ");
+           document.getElementById("data").rows["accelX"].innerHTML =
+               dataRow("Accel X", data[index].accelX, " ");
+           document.getElementById("data").rows["accelY"].innerHTML =
+               dataRow("Accel Y", data[index].accelY, " ");
+           document.getElementById("data").rows["accelZ"].innerHTML =
+               dataRow("Accel Z", data[index].accelZ, " ");
+           document.getElementById("data").rows["magneticX"].innerHTML =
+               dataRow("Magnetic X", data[index].magneticX, " ");
+           document.getElementById("data").rows["magneticY"].innerHTML =
+               dataRow("Magnetic Y", data[index].magneticY, " ");
+           document.getElementById("data").rows["magneticZ"].innerHTML =
+               dataRow("Magnetic Z", data[index].magneticZ, " ");
+           document.getElementById("data").rows["gyroX"].innerHTML =
+               dataRow("Gyro X", data[index].gyroX, " ");
+           document.getElementById("data").rows["gyroY"].innerHTML =
+               dataRow("Gyro Y", data[index].gyroY, " ");
+           document.getElementById("data").rows["gyroZ"].innerHTML =
+               dataRow("Gyro Z", data[index].gyroZ, " ");
+           document.getElementById("timeClock").innerHTML = "The time is: " + theTime.getHours() + ":"
+               + (theTime.getMinutes() < 10 ? "0" + theTime.getMinutes() : theTime.getMinutes()) + ":"
+               + (theTime.getSeconds() < 10 ? "0" + theTime.getSeconds() : theTime.getSeconds());
+
+           if (index < 500) {
+               index++;
+           } else {
+               index = 0;
+           }
+       }
+   }
+   </script>
+   <div id="counter1">
+           <button id="startCount" onclick="startCount();" class="startButton">Flight</button>
+   </div> 
+   <div id="game">
+           <button onclick="kplay();">Play</button>
+           <p id="die1"></p>
+           <p id="die2"></p>
+           <p id="sum"></p>
+           <p id="result"></p>
+           <script src="game.js"></script>
+           <audio src="sky.mp3" preload="audio" controls="none" style="display: none;">
+          </audio>
+   </div>
+</body>
+</html>
